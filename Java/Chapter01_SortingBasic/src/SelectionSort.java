@@ -2,7 +2,7 @@
  * Author: lvjingyuan
  * Email: lvjyuan@163.com
  * Date: 2018/11/29
- * Describe: 选择排序
+ * Describe: 选择排序  时间复杂度: O(n²)  空间复杂度: O(1)
  */
 public class SelectionSort {
     // 我们的算法不允许产生任何实例
@@ -63,5 +63,14 @@ public class SelectionSort {
             System.out.print(arr[i] + " ");
         }
         System.out.println();
+
+        int[] arr1 = SortTestHelper.generateRandomArray(10000, 0, 100000);
+        long startTime = System.currentTimeMillis();
+        SelectionSort.selectionSort(arr1);
+        long endTime = System.currentTimeMillis();
+
+        assert (SortTestHelper.isSort(arr1));
+
+        System.out.println("选择排序 " + arr1.length + " 个数据花费时间: " + (endTime - startTime) + "ms");
     }
 }
